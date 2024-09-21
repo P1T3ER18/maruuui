@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Qué tipo de Mariel eres hoy?</title>
+    <style>
+        /* Fuentes y colores */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5f7fa;
+        }
+        #container {
+            text-align: center;
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            width: 350px;
+            transition: all 0.3s ease-in-out;
+        }
+        h1 {
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 12px 25px;
+            font-size: 16px;
+            border: none;
+            background-color: #6c63ff;
+            color: white;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 6px 15px rgba(108, 99, 255, 0.4);
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #5753d9;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 22px;
+            color: #333;
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+        }
+        #imagen {
+            margin-top: 20px;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid #6c63ff;
+            box-shadow: 0 6px 20px rgba(108, 99, 255, 0.2);
+            display: none;
+            animation: fadeIn 1s forwards;
+        }
+        /* Animaciones */
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: scale(0.9); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>¿Qué tipo de Mariel eres hoy?</h1>
+        <button onclick="seleccionarEstado()">Descúbrelo</button>
+        <div id="result"></div>
+        <img id="imagen" src="" alt="Imagen de estado" />
+    </div>
+
+    <script>
+        function seleccionarEstado() {
+            var estados = ["pelirroja", "cachetitos", "MARIO BROS"];
+            var imagenes = {
+                "pelirroja": "img/nojodas.jpg",  // Ruta local para la imagen de enojada
+                "cachetitos": "img/cachetitos.jpg",    // Ruta local para la imagen de triste
+                "MARIO BROS": "img/marielb.jpg",       // Ruta local para la imagen de feliz
+            };
+
+            // Selecciona un estado y su imagen correspondiente
+            var estadoAleatorio = estados[Math.floor(Math.random() * estados.length)];
+            var imagenAleatoria = imagenes[estadoAleatorio];
+
+            // Actualiza el texto y la imagen en la página
+            document.getElementById("result").innerText = "Hoy eres una Mariel: " + estadoAleatorio;
+            document.getElementById("imagen").src = imagenAleatoria;
+            document.getElementById("imagen").style.display = "block";
+        }
+    </script>
+</body>
+</html>
+
